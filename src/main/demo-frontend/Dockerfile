@@ -1,6 +1,6 @@
 #stage 1
 FROM node:16 as node
-WORKDIR /app
+WORKDIR /src/app
 COPY ./package*.json /app/
 RUN npm install
 COPY . .
