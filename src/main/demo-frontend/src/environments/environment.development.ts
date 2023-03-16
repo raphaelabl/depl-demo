@@ -1,3 +1,3 @@
 export const environment = {
-    BACKEND_URL: "http://backend:8080/"
+    BACKEND_URL: "https://rablinger.live/api/"
 };
