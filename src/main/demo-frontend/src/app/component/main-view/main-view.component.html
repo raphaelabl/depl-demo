@@ -2,6 +2,10 @@
   <p>{{c.model}} {{c.brand}}<p>
 </ng-container>
 
+<label>Car Brand</label>
 <input type="text" [(ngModel)]="inputCar.brand"/>
+
+<label>Car Model</label>
 <input type="text" [(ngModel)]="inputCar.model"/>
+
 <input type="submit" (click)="AddCar()">
