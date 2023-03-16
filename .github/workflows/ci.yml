@@ -79,6 +79,7 @@ jobs:
   build:
     name: Update-on-Server
     runs-on: ubuntu-latest
+    needs: [build-frontend, build-backend]
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.8
@@ -88,6 +89,8 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: | 
+          cd ~/depl
           sudo docker compose down
           sudo docker compose pull
           sudo docker compose up
+    
