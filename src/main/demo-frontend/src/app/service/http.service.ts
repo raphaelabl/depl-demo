@@ -12,10 +12,12 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getAllCars(): Observable<Car[]>{
+    console.log("Getting from to: " + environment.BACKEND_URL)
     return this.http.get<Car[]>(environment.BACKEND_URL + "vehicle");
   }
 
   addCar(inputCar: Car) {
+    console.log("Sending to: " + environment.BACKEND_URL)
     return this.http.post<Car[]>(environment.BACKEND_URL + "vehicle", inputCar);
   }
 }
