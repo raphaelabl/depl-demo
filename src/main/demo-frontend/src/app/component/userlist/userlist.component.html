@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Vorname</th>
+    <th scope="col">Nachname</th>
+    <th scope="col">Spitzname</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+  <tr>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.nickName}}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+<div class="input-group flex-nowrap mb-3">
+    <input [(ngModel)]="inputUser.firstName"  type="text" class="form-control" placeholder="Vorname" aria-label="Vorname" aria-describedby="addon-wrapping" >
+</div>
+<div class="input-group flex-nowrap mb-3">
+    <input [(ngModel)]="inputUser.lastName"  type="text" class="form-control" placeholder="Nachname" aria-label="Nachname" aria-describedby="addon-wrapping" >
+</div>
+<div class="input-group flex-nowrap mb-3">
+    <input [(ngModel)]="inputUser.nickName" type="text" class="form-control" placeholder="Spitzname" aria-label="Spitzname" aria-describedby="addon-wrapping" >
+</div>
+<div class="input-group flex-nowrap mb-3">
+  <input type="submit" class="form-control" (click)="insert()">
+</div>

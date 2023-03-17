@@ -3,15 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainViewComponent } from './component/main-view/main-view.component';
 import {FormsModule} from "@angular/forms";
 import {HttpService} from "./service/http.service";
 import {HttpClientModule} from "@angular/common/http";
+import { UserlistComponent } from './component/userlist/userlist.component';
+import { AddUserComponent } from './component/add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainViewComponent
+    UserlistComponent,
+    AddUserComponent
   ],
     imports: [
         BrowserModule,
