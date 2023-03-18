@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { environment } from 'src/environments/environment.development';
 import {User} from "../model/user.model";
+import {Image} from "../model/image.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,11 @@ export class HttpService {
 
   postUser(user: User): Observable<User[]>{
     return this.http.post<User[]>(environment.BACKEND_URL + "user", user);
+  }
+
+
+  getImages(): Observable<Image[]>{
+    return this.http.get<Image[]>(environment.BACKEND_URL + "image")
   }
 
 }
