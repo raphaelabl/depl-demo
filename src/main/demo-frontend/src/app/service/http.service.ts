@@ -26,4 +26,7 @@ export class HttpService {
     return this.http.get<Image[]>(environment.BACKEND_URL + "image")
   }
 
+  uploadImage(form: HTMLFormElement) {
+    return this.http.post(environment.BACKEND_URL + 'image/upload', new FormData(form));
+  }
 }
