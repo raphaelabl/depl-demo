@@ -11,27 +11,30 @@ export class UploadComponent {
 
   form!: HTMLFormElement|undefined|null;
 
-  file: File | null | undefined;
+  file: File | null = null;
 
-  fileName = ""
-
-  imageUrl = ""
 
   constructor(private http: HttpService) {}
 
   uploadImage(){
 
+    const formData: FormData = new FormData();
+    if(this.file){
+      formData.append('file', this.file!);
+      formData.append('fileName', this.file!.name);
 
+      if(formData) {
+        console.log(formData)
+        this.http.uploadImage(formData).subscribe();
+      }
+    }
 
-    this.form = document.forms.namedItem('uploadForm');
-    console.log(new FormData(this.form!))
-    this.http.uploadImage(this.form!).subscribe();
   }
 
   fileChanged(event: Event) {
-
-
-
-
+    if(null != (<HTMLInputElement>event.target).files && (<HTMLInputElement>event.target).files!.length != 0){
+      this.file = (<HTMLInputElement>event.target).files![0]
+      console.log(this.file)
+    }
   }
 }

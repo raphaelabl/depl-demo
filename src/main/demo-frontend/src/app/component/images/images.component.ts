@@ -20,11 +20,8 @@ export class ImagesComponent implements OnInit{
 
     this.http.getImages().subscribe({
       next:value => {
-
-
         for (let i = 0; i < Math.ceil(value.length/4); i++) {
           let tmp: Image[] = [];
-
           for(let j = 0; (j < 4) && ((i*4)+j<value.length); j++){
             tmp[j] = value[(i*4)+j];
           }

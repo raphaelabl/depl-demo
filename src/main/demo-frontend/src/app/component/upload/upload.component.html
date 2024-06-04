@@ -9,7 +9,7 @@
       </div>
       <div class="col">
         <label>Content:</label>
-        <input type="file" name="image" required class="form-control" accept="image/*, video/*" >
+        <input type="file" name="image" (change)="fileChanged($event)" required class="form-control" accept="image/*, video/*" >
       </div>
 
       <div class="col">
@@ -20,11 +20,6 @@
 <!--          <mat-icon>file_upload</mat-icon>-->
 <!--        </button>-->
         <button class="btn btn-primary mt-3" (click)="uploadImage()">Create Example</button>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="imagePreview" *ngIf="imageUrl && imageUrl !== ''">
-        <img [src]="imageUrl" style="width: 18rem;" alt="Preview">
       </div>
     </div>
   </form>

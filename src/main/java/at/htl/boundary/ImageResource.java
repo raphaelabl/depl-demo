@@ -11,10 +11,13 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.xml.transform.dom.DOMResult;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+
+import static org.apache.commons.io.IOUtils.DEFAULT_BUFFER_SIZE;
 
 @Path("image")
 public class ImageResource {
@@ -60,8 +63,39 @@ public class ImageResource {
     @Transactional
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public void postImage2(@MultipartForm Resource resource) {
-        System.out.println(resource.file.getAbsolutePath());
-        System.out.println(resource.text);
+
+        String ordnerPfad = "/home/raphael/Desktop/Schule/demos/depl-demo/src/main/resources/gottenFiles/";
+
+        String pfadZurDatei = ordnerPfad + resource.fileName;
+
+        File file = new File(pfadZurDatei);
+
+        try {
+            if (file.createNewFile()) {
+                System.out.println("Datei wurde erstellt: " + file.getName());
+            } else {
+                System.out.println("Die Datei existiert bereits.");
+            }
+        } catch (IOException e) {
+            System.out.println("Fehler beim Erstellen der Datei.");
+            e.printStackTrace();
+        }
+        try {
+            copyInputStreamToFileJava9(resource.file, file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    private static void copyInputStreamToFileJava9(InputStream input, File file)
+            throws IOException {
+
+        try (OutputStream output = new FileOutputStream(file, false)) {
+            input.transferTo(output);
+        }
+
     }
 
 }
