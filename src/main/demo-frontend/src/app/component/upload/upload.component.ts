@@ -12,7 +12,7 @@ export class UploadComponent {
   form!: HTMLFormElement|undefined|null;
 
   file: File | null = null;
-
+  inputText: string = "";
 
   constructor(private http: HttpService) {}
 
@@ -22,7 +22,8 @@ export class UploadComponent {
     if(this.file){
       formData.append('file', this.file!);
       formData.append('fileName', this.file!.name);
-
+      formData.append('inputText', this.inputText);
+      
       if(formData) {
         console.log(formData)
         this.http.uploadImage(formData).subscribe();

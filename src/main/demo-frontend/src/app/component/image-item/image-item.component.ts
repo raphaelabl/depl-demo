@@ -9,8 +9,6 @@ export class ImageItemComponent {
 
   @Input()
   imgUrl: string = "";
-
-
   @Input()
   imgText: string = "$empty"
 }

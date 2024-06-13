@@ -15,5 +15,9 @@ public class Resource {
     @PartType(MediaType.TEXT_PLAIN)
     public String fileName;
 
+    @FormParam("inputText")
+    @PartType(MediaType.TEXT_PLAIN)
+    public String inputText;
+
 
 }

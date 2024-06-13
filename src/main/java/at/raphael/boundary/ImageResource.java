@@ -46,7 +46,7 @@ public class ImageResource {
                         break;
                 }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println("Fehler");
             }
         } );
     }
@@ -66,7 +66,7 @@ public class ImageResource {
 
         String ordnerPfad = "/home/raphael/projects/gottenFiles/";
 
-        String pfadZurDatei = ordnerPfad + resource.fileName;
+        String pfadZurDatei = ordnerPfad + resource.inputText + "/" + resource.fileName;
 
         File file = new File(pfadZurDatei);
 
@@ -78,7 +78,6 @@ public class ImageResource {
             }
         } catch (IOException e) {
             System.out.println("Fehler beim Erstellen der Datei.");
-            e.printStackTrace();
         }
         try {
             copyInputStreamToFileJava9(resource.file, file);
