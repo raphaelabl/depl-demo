@@ -1,3 +1,4 @@
 export const environment = {
-  BACKEND_URL: "${process.env.BACKEND_URL}"
+  production: false,
+  BACKEND_URL: "http://145.40.55.222:8079"
 };
