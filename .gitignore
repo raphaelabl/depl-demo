@@ -11,6 +11,7 @@ release.properties
 .classpath
 .settings/
 bin/
+db-postgres/
 
 # IntelliJ
 .idea
@@ -38,3 +39,4 @@ nb-configuration.xml
 
 # Local environment
 .env
+/db-postgres/
